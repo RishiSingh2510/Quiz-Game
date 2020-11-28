@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Quiz-Game"
+    }
+  },
+  "defaultProject": "Quiz-Game",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,0 +1,74 @@
+#hud {
+    display: flex;
+    justify-content: space-between;
+    color:white;
+}
+.choice-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 #f4623a;
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+
+.choice-container {
+    display: flex;
+    margin-bottom: 0.5rem;
+    font-size: 1.0rem;
+    background-color: white;
+    flex-direction: initial;
+}
+.choice-prefix {
+    padding: 1.0rem 2.0rem;
+    background-color: #f4623a;
+    color: white;
+    box-sizing: border-box;
+    margin: 0;
+}
+.choice-text {
+    padding: 1.0rem;
+    width: 100%;
+}
+.question-holder {
+    height: 5rem;
+    color: white;
+}
+.card {
+    font-weight: 400;
+    border: 0;
+}
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.rotateIn {
+    -webkit-animation-name: rotateIn;
+    animation-name: rotateIn;
+}
+
+.modal-dialog.modal-notify.modal-success .fas, .modal-dialog.modal-notify.modal-success .fab, .modal-dialog.modal-notify.modal-success .far {
+    color: #f4623a;
+}
+.modal-dialog.modal-notify.modal-success .modal-header {
+    background-color:#f4623a;
+}
+.modal-dialog .modal-content .modal-header {
+    border-top-left-radius: .125rem;
+    border-top-right-radius: .125rem;
+}
+.modal-dialog.modal-notify .modal-header {
+    border: 0;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+.modal-dialog.modal-notify .heading {
+    padding: .3rem;
+    margin: 0;
+    font-size: 1.15rem;
+    color: #fff;
+}
+.white-text{
+    color: #fff !important;
+}

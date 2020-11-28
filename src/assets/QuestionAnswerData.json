@@ -1,0 +1,49 @@
+{
+    "QuestionList": [
+        {
+            "QuestionNo": 1,
+            "Question": "What is the purpose of <!DOCTYPE html>?",
+            "Option_A": "provides the web browser with security information",
+            "Option_B": "instructs the browser where to look for your CSS files",
+            "Option_C": "allows programmers to link to files in-line",
+            "Option_D": "tells the web browser what language to expect",
+            "CorrectAnswer": ""
+        },
+        {
+            "QuestionNo": 2,
+            "Question": "How can you make a list that lists the items without bullets or numbers?",
+            "Option_A": "<ol>",
+            "Option_B": "<di>",
+            "Option_C": "<li>",
+            "Option_D": "List have to have numbers or bullets",
+            "CorrectAnswer": ""
+        },
+        {
+            "QuestionNo": 3,
+            "Question": "What does HTML stand for?",
+            "Option_A": "Hyper Text Markup Language",
+            "Option_B": "Home Tool Markup Language",
+            "Option_C": "Hyperlinks and Text Markup Language",
+            "Option_D": "Hyper Text Methodic Language",
+            "CorrectAnswer": "Hyper Text Markup Language"
+        },
+        {
+            "QuestionNo": 4,
+            "Question": "Choose the correct HTML tag to make a text bold.",
+            "Option_A": "<bold>",
+            "Option_B": "<strong>",
+            "Option_C": "<b>",
+            "Option_D": "<bb>",
+            "CorrectAnswer": "<b>"
+        },
+        {
+            "QuestionNo": 5,
+            "Question": "What is the correct HTML tag for inserting a line break?",
+            "Option_A": "<break>",
+            "Option_B": "<br></br>",
+            "Option_C": "<br/>",
+            "Option_D": "<lb>",
+            "CorrectAnswer": "<br>"
+        }
+    ]
+}
