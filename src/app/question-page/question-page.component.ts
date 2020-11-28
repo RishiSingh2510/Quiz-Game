@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 import { QuizDataService } from '../services/quiz-data.service';
 import { QuestionAnswerModel } from './question-answer.model'
 
@@ -10,7 +11,7 @@ import { QuestionAnswerModel } from './question-answer.model'
 })
 export class QuestionPageComponent implements OnInit {
 
-  constructor(private _quizService: QuizDataService, private router: Router) { }
+  constructor(private _quizService: QuizDataService, private router: Router, private loadingBar: LoadingBarService) { }
   currentQuestion: string = "What is the correct HTML for inserting an image?";
   currentQuestionOption_A: string = "<img alt='My image'>image.jpg</img>"
   currentQuestionOption_B: string = "<img alt='My image' src='image.jpg'>"
@@ -34,11 +35,13 @@ export class QuestionPageComponent implements OnInit {
     if (this.currentCorrectAnswer != selectedAnswer) {
       this.currentWrongAnswer = selectedAnswer;
     }
+    this.loadingBar.start(0)
     setTimeout(() => {
       this.currentWrongAnswer = "";
       this.currentCorrectAnswer = "";
       this.updateScore();
       this.displayNextQuestion();
+      this.loadingBar.stop()
     }, 2000);
   }
   displayNextQuestion() {
@@ -96,7 +99,7 @@ export class QuestionPageComponent implements OnInit {
     if (isRetry)
       this.resetQuizData();
     else
-      this.router.navigate(['/']);
+      this.router.navigate(['/'], { skipLocationChange: true });
   }
 
   resetQuizData() {

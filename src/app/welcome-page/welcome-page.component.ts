@@ -16,10 +16,10 @@ export class WelcomePageComponent implements OnInit {
   }
   playGame() {
     if (this.isLogin) {
-      this.router.navigate(['/Q']);
+      this.router.navigate(['/quiz'], { skipLocationChange: true });
     }
     else {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login'], { skipLocationChange: true });
     }
   }
 }

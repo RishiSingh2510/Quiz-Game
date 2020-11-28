@@ -6,10 +6,10 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 
 const routes: Routes = [
-  {path:"", component: WelcomePageComponent},
-  {path:"login", component: LoginPageComponent},
-  {path:"Q", component: QuestionPageComponent},
-  {path:"**", component: WelcomePageComponent},
+  { path: "", component: WelcomePageComponent },
+  { path: "login", component: LoginPageComponent },
+  { path: "quiz", component: QuestionPageComponent },
+  { path: "**", component: WelcomePageComponent },
 ];
 
 @NgModule({

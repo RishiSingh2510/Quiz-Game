@@ -28,6 +28,6 @@ export class AppComponent implements OnInit {
     this._appSetting.setUserName("");
     localStorage.setItem("Username", "");
     localStorage.setItem("isLogin", "0")
-    this.router.navigate(['/']);
+    this.router.navigate(['/'], { skipLocationChange: true });
   }
 }

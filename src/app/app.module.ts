@@ -10,6 +10,7 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { QuizDataService } from './services/quiz-data.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    LoadingBarRouterModule,
     HttpClientModule
   ],
   providers: [QuizDataService],

@@ -30,7 +30,7 @@ export class LoginPageComponent implements OnInit {
     else {
       localStorage.setItem("Username", this.userNameVal);
       localStorage.setItem("isLogin", "1");
-      this.router.navigate(['/Q']);
+      this.router.navigate(['/quiz'], { skipLocationChange: true });
       this._appSetting.setUserName(this.userNameVal);
     }
   }
