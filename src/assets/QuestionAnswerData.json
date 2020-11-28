@@ -7,7 +7,7 @@
             "Option_B": "instructs the browser where to look for your CSS files",
             "Option_C": "allows programmers to link to files in-line",
             "Option_D": "tells the web browser what language to expect",
-            "CorrectAnswer": ""
+            "CorrectAnswer": "tells the web browser what language to expect"
         },
         {
             "QuestionNo": 2,
@@ -16,7 +16,7 @@
             "Option_B": "<di>",
             "Option_C": "<li>",
             "Option_D": "List have to have numbers or bullets",
-            "CorrectAnswer": ""
+            "CorrectAnswer": "<di>"
         },
         {
             "QuestionNo": 3,
@@ -43,7 +43,7 @@
             "Option_B": "<br></br>",
             "Option_C": "<br/>",
             "Option_D": "<lb>",
-            "CorrectAnswer": "<br>"
+            "CorrectAnswer": "<br/>"
         }
     ]
 }

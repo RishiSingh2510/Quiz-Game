@@ -16,7 +16,8 @@ export class QuestionPageComponent implements OnInit {
   currentQuestionOption_B: string = "<img alt='My image' src='image.jpg'>"
   currentQuestionOption_C: string = "<img alt='My image' href='image.jpg'>"
   currentQuestionOption_D: string = "<image alt='My image' src='image.jpg'>"
-  currentcorrectAnswer: string = ""
+  currentCorrectAnswer: string = ""
+  currentWrongAnswer: string = ""
   correctAnswerCount: number = 0
   quizQuestionList: QuestionAnswerModel[] = [];
   currentIndex: number = 0
@@ -25,9 +26,20 @@ export class QuestionPageComponent implements OnInit {
   }
 
   validateAnswer(selectedAnswer: string) {
+    if (this.quizQuestionList[this.currentIndex].SelectedAnswer != undefined) {
+      return
+    }
     this.quizQuestionList[this.currentIndex].SelectedAnswer = selectedAnswer;
-    this.updateScore();
-    this.displayNextQuestion();
+    this.currentCorrectAnswer = this.quizQuestionList[this.currentIndex].CorrectAnswer
+    if (this.currentCorrectAnswer != selectedAnswer) {
+      this.currentWrongAnswer = selectedAnswer;
+    }
+    setTimeout(() => {
+      this.currentWrongAnswer = "";
+      this.currentCorrectAnswer = "";
+      this.updateScore();
+      this.displayNextQuestion();
+    }, 2000);
   }
   displayNextQuestion() {
     if (this.currentIndex < this.quizQuestionList.length - 1) {
@@ -42,6 +54,7 @@ export class QuestionPageComponent implements OnInit {
   displayNewQuestion() {
     let currentQuestionItem: QuestionAnswerModel = this.quizQuestionList[this.currentIndex]
     this.currentQuestion = currentQuestionItem.Question
+    // this.currentcorrectAnswer = currentQuestionItem.CorrectAnswer
     let optionArray = [];
     optionArray.push(currentQuestionItem.Option_A);
     optionArray.push(currentQuestionItem.Option_B);
@@ -64,11 +77,11 @@ export class QuestionPageComponent implements OnInit {
     }
     return itemArray;
   }
+
   prepareScore() {
     document.getElementById("slideBg").style.display = "block";
     document.getElementById("resultModal").style.display = "block";
     document.getElementById("resultModal").classList.add("show")
-    
   }
 
   //Update Scores After Select Any Option based on correct Answer

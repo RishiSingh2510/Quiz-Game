@@ -1,4 +1,4 @@
-<div class="container" style="padding: 72px 5px 6px 6px;top:5%;position: absolute;">
+<div class="container disable-text" style="padding: 72px 5px 6px 6px;top:5%;position: absolute;">
     <div id="hud">
         <div class="hud-item">
             <p class="hud-prefix">
@@ -23,16 +23,18 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 ">
-            <div class="card choice-container" (click)="validateAnswer(currentQuestionOption_A)">
+        <div class="col-12">
+            <div class="card choice-container" (click)="validateAnswer(currentQuestionOption_A)" [ngClass]="{'incorrect': (currentWrongAnswer!='' && currentWrongAnswer == currentQuestionOption_A),
+            'correct': (currentCorrectAnswer!='' && currentCorrectAnswer == currentQuestionOption_A)}">
                 <p class="choice-prefix">A</p>
                 <p class="choice-text" data-answer="a">{{currentQuestionOption_A}}</p>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-12 ">
-            <div class="card choice-container" (click)="validateAnswer(currentQuestionOption_B)">
+        <div class="col-12">
+            <div class="card choice-container" (click)="validateAnswer(currentQuestionOption_B)" [ngClass]="{'incorrect': (currentWrongAnswer!='' && currentWrongAnswer ==  currentQuestionOption_B),
+            'correct': (currentCorrectAnswer!='' && currentCorrectAnswer == currentQuestionOption_B)}">
                 <p class="choice-prefix">B</p>
                 <p class="choice-text" data-answer="b">{{currentQuestionOption_B}}</p>
             </div>
@@ -40,15 +42,19 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <div class="card choice-container" (click)="validateAnswer(currentQuestionOption_C)">
+            <div class="card choice-container" (click)="validateAnswer(currentQuestionOption_C)" [ngClass]="{
+                    'incorrect': (currentWrongAnswer!='' && currentWrongAnswer == currentQuestionOption_C),
+                    'correct': (currentCorrectAnswer!='' && currentCorrectAnswer == currentQuestionOption_C)
+            }">
                 <p class="choice-prefix">C</p>
                 <p class="choice-text" data-answer="c">{{currentQuestionOption_C}}</p>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-12 ">
-            <div class="card choice-container" (click)="validateAnswer(currentQuestionOption_D)">
+        <div class="col-12">
+            <div class="card choice-container" (click)="validateAnswer(currentQuestionOption_D)" [ngClass]="{'incorrect': (currentWrongAnswer!='' && currentWrongAnswer ==  currentQuestionOption_D),
+                    'correct': (currentCorrectAnswer!='' && currentCorrectAnswer == currentQuestionOption_D)}">
                 <p class="choice-prefix">D</p>
                 <p class="choice-text" data-answer="d">{{currentQuestionOption_D}}</p>
             </div>
