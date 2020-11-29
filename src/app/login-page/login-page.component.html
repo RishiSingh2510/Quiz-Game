@@ -1,15 +1,22 @@
 <div class="formCenter">
     <div class="heading">SignIn</div>
     <div class="form-row-12" style="margin: 0 12%!important;">
-        <div class="col-md-12 mb-3 input-container">
+        <div class="col-md-12 mb-3 input-container p-0">
             <i class="fa fa-user"></i>
-            <input type="text" placeholder="Enter Username" 
-            class="form-control input-field" id="validationServer01" [(ngModel)]="userNameVal">
+            <input type="text" placeholder="Enter Username" class="form-control input-field" [(ngModel)]="userNameVal">
         </div>
-        <div class="col-md-12 mb-3 input-container">
+        <div class="col-md-12 mb-3 input-container p-0">
             <i class="fa fa-key"></i>
-            <input type="password" placeholder="Enter Password" 
-            class="form-control input-field" id="validationServer02" [(ngModel)]="passwordVal">
+            <input type="password" placeholder="Enter Password" class="form-control input-field"
+                [(ngModel)]="passwordVal">
+        </div>
+        <div class="row mb-3">
+            <div class="col-lg-6 d-inline">
+
+            </div>
+            <div class="col-lg-6 text-right">
+                <a class="item-link" [routerLink]="['/register']" skipLocationChange>New Registration</a>
+            </div>
         </div>
     </div>
     <div class="submit-btn-scope text-center">

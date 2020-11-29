@@ -1,0 +1,4 @@
+.heading{color: #f4623a;}
+input[type=text],input[type=password]{font-size: 16px;display: block;width: 100%;border: none;border-bottom: 1px solid #e6e7e8;padding: 1em;}
+.ng-invalid:not(form){border-left: 5px solid #a94442; }
+.ng-valid:not(form){border-left: 5px solid #42A948;}

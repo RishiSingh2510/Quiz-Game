@@ -1,58 +1,118 @@
-<div class="form-row">
-    <div class="col-md-6 mb-3">
-        <label for="validationServer01">First name</label>
-        <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required>
-        <div class="valid-feedback">
-            Looks good!
-        </div>
+<div class="formCenter w-100" style="left: 0; padding: 50px;top: 20%;">
+    <div class="form-row">
+        <h1 class="heading mb-3">Quiz Registration</h1>
     </div>
-    <div class="col-md-6 mb-3">
-        <label for="validationServer02">Last name</label>
-        <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required>
-        <div class="valid-feedback">
-            Looks good!
-        </div>
+    <div class="container">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="col-lg-12 col-md-12 mb-3" style="max-height: 400px;overflow-y: auto;overflow-x: hidden;">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" class="form-control" formControlName="fullName" placeholder="Full Name">
+                        <div *ngIf="registerForm.get('fullName').invalid && (registerForm.get('fullName').dirty 
+                        || registerForm.get('fullName').touched)" class="alert alert-danger">
+                            <div *ngIf="registerForm.get('fullName').errors.required">
+                                Full Name is required.
+                            </div>
+                            <div *ngIf="registerForm.get('fullName').errors.minlength">
+                                Full Name must be at least 4 characters long.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" formControlName="password" placeholder="Password">
+                        <div *ngIf="registerForm.get('password').invalid && (registerForm.get('password').dirty 
+                        || registerForm.get('password').touched)" class="alert alert-danger">
+                            <div *ngIf="registerForm.get('password').errors.required">
+                                Password is required.
+                            </div>
+                            <div
+                                *ngIf="registerForm.get('password').errors.minlength || registerForm.get('password').errors.maxlength">
+                                Password should be between 4-8 characters.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="userName">Username</label>
+                        <input type="text" class="form-control" formControlName="userName" placeholder="Username">
+                        <div *ngIf="registerForm.get('userName').invalid && (registerForm.get('userName').dirty 
+                        || registerForm.get('userName').touched)" class="alert alert-danger">
+                            <div *ngIf="registerForm.get('userName').errors.required">
+                                Username is required.
+                            </div>
+                            <div *ngIf="registerForm.get('userName').errors.minlength">
+                                Username must be at least 4 characters long.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="input-group">
+                            <label for="emailId">Email</label>
+                            <input type="text" class="form-control" formControlName="emailId" placeholder="Email"
+                                aria-describedby="inputGroupPrepend">
+                            <div *ngIf="registerForm.get('emailId').invalid && (registerForm.get('emailId').dirty 
+                                || registerForm.get('emailId').touched)" class="alert alert-danger">
+                                <div *ngIf="registerForm.get('emailId').errors.required">
+                                    Email is required.
+                                </div>
+                                <div *ngIf="registerForm.get('emailId').errors.email">
+                                    Please Enter Valid Email.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" formControlName="city" placeholder="City">
+                        <div *ngIf="registerForm.get('city').invalid && (registerForm.get('city').dirty 
+                                || registerForm.get('city').touched)" class="alert alert-danger">
+                            <div *ngIf="registerForm.get('city').errors.required">
+                                Please provide a valid city.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="state">State</label>
+                        <input type="text" class="form-control" formControlName="state" placeholder="State">
+                        <div *ngIf="registerForm.get('state').invalid && (registerForm.get('state').dirty 
+                                || registerForm.get('state').touched)" class="alert alert-danger">
+                            <div *ngIf="registerForm.get('state').errors.required">
+                                Please provide a valid state.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="zip">Zip</label>
+                        <input type="text" class="form-control" formControlName="zip" placeholder="Zip">
+                        <div *ngIf="registerForm.get('zip').invalid && (registerForm.get('zip').dirty 
+                                || registerForm.get('zip').touched)" class="alert alert-danger">
+                            <div *ngIf="registerForm.get('zip').errors.required">
+                                Please provide a valid zip.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" formControlName="invalidCheck" required>
+                    <label class="form-check-label" for="invalidCheck">
+                        Agree to terms and conditions
+                    </label>
+                    <div *ngIf="registerForm.get('invalidCheck').invalid && registerForm.get('invalidCheck').dirty"
+                        class="alert alert-danger">
+                        <div *ngIf="registerForm.get('invalidCheck').errors.required">
+                            You must agree before submitting.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 text-right">
+                <button class="btn btn-primary" [disabled]="registerForm.invalid">Sign In</button>
+            </div>
+        </form>
     </div>
 </div>
-<div class="form-row">
-    <div class="col-md-6 mb-3">
-        <label for="validationServer03">City</label>
-        <input type="text" class="form-control is-invalid" id="validationServer03"
-            aria-describedby="validationServer03Feedback" required>
-        <div id="validationServer03Feedback" class="invalid-feedback">
-            Please provide a valid city.
-        </div>
-    </div>
-    <div class="col-md-3 mb-3">
-        <label for="validationServer04">State</label>
-        <select class="custom-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback"
-            required>
-            <option selected disabled value="">Choose...</option>
-            <option>...</option>
-        </select>
-        <div id="validationServer04Feedback" class="invalid-feedback">
-            Please select a valid state.
-        </div>
-    </div>
-    <div class="col-md-3 mb-3">
-        <label for="validationServer05">Zip</label>
-        <input type="text" class="form-control is-invalid" id="validationServer05"
-            aria-describedby="validationServer05Feedback" required>
-        <div id="validationServer05Feedback" class="invalid-feedback">
-            Please provide a valid zip.
-        </div>
-    </div>
-</div>
-<div class="form-group">
-    <div class="form-check">
-        <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3"
-            aria-describedby="invalidCheck3Feedback" required>
-        <label class="form-check-label" for="invalidCheck3">
-            Agree to terms and conditions
-        </label>
-        <div id="invalidCheck3Feedback" class="invalid-feedback">
-            You must agree before submitting.
-        </div>
-    </div>
-</div>
-<button class="btn btn-primary" type="submit">Submit form</button>
