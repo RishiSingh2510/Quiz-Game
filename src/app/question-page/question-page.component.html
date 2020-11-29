@@ -78,9 +78,27 @@
                     <p class="result">You have correctly answered <span id="scoreSummary">
                             {{correctAnswerCount}}</span> out of <span id="totalSummary">5</span> questions.</p>
                 </div>
+                <div class="container" style="max-height: 400px;overflow-y: auto;">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>SNo.</th>
+                                <th>Player Name</th>
+                                <th>Player Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let playerDetail of playerScoreList | slice:0:10;let in=index">
+                                <td>{{in+1}}</td>
+                                <td>{{playerDetail.UserName}}</td>
+                                <td>{{playerDetail.scoredValue}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="closeModel(true)">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="closeModel(true)">
                     Retry
                 </button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="closeModel()">

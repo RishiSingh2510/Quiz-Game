@@ -8,6 +8,7 @@ import { UserDetail } from './userDetail.Model';
 export class AppSettingService {
 
   userName: BehaviorSubject<string> = new BehaviorSubject(localStorage.getItem("Username"));
+  loginPage: BehaviorSubject<boolean> = new BehaviorSubject(false);
   registeredUserList: UserDetail[] = []
   constructor() { }
 
@@ -16,11 +17,25 @@ export class AppSettingService {
   }
 
   addNewUser(newUser: UserDetail) {
-    this.registeredUserList.push(newUser)
+    this.registeredUserList.push(newUser);
+    this.saveUserList();
+  }
+
+  saveUserList() {
+    localStorage.setItem("UserList", JSON.stringify(this.registeredUserList));
   }
 
   getUserList() {
+    let strUserList: string = localStorage.getItem("UserList");
+    if (strUserList != null && strUserList != "")
+      this.registeredUserList = JSON.parse(strUserList);
+  }
 
+  setAppSettings() {
+    if (localStorage.getItem("Username") == null) {
+      localStorage.setItem("Username", "");
+      localStorage.setItem("isLogin", "0")
+    }
   }
   
   validateUser(enteredValue: string, password: string) {
@@ -28,4 +43,5 @@ export class AppSettingService {
       || el.EmailId.toLowerCase() == enteredValue.toLowerCase()) && el.Password == password)
     return (userIndex != -1)
   }
+
 }

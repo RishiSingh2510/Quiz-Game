@@ -11,7 +11,8 @@ import { QuestionAnswerModel } from './question-answer.model'
 })
 export class QuestionPageComponent implements OnInit {
 
-  constructor(private _quizService: QuizDataService, private router: Router, private loadingBar: LoadingBarService) { }
+  constructor(private _quizService: QuizDataService, private router: Router,
+    private loadingBar: LoadingBarService) { }
   currentQuestion: string = "What is the correct HTML for inserting an image?";
   currentQuestionOption_A: string = "<img alt='My image'>image.jpg</img>"
   currentQuestionOption_B: string = "<img alt='My image' src='image.jpg'>"
@@ -22,6 +23,7 @@ export class QuestionPageComponent implements OnInit {
   correctAnswerCount: number = 0
   quizQuestionList: QuestionAnswerModel[] = [];
   currentIndex: number = 0
+  playerScoreList: any = []
   ngOnInit(): void {
     this.resetQuizData();
   }
@@ -35,11 +37,11 @@ export class QuestionPageComponent implements OnInit {
     if (this.currentCorrectAnswer != selectedAnswer) {
       this.currentWrongAnswer = selectedAnswer;
     }
+    this.updateScore();
     this.loadingBar.start(0)
     setTimeout(() => {
       this.currentWrongAnswer = "";
       this.currentCorrectAnswer = "";
-      this.updateScore();
       this.displayNextQuestion();
       this.loadingBar.stop()
     }, 2000);
@@ -57,7 +59,6 @@ export class QuestionPageComponent implements OnInit {
   displayNewQuestion() {
     let currentQuestionItem: QuestionAnswerModel = this.quizQuestionList[this.currentIndex]
     this.currentQuestion = currentQuestionItem.Question
-    // this.currentcorrectAnswer = currentQuestionItem.CorrectAnswer
     let optionArray = [];
     optionArray.push(currentQuestionItem.Option_A);
     optionArray.push(currentQuestionItem.Option_B);
@@ -82,6 +83,9 @@ export class QuestionPageComponent implements OnInit {
   }
 
   prepareScore() {
+    this._quizService.saveScores(this.correctAnswerCount);
+    this.playerScoreList = this._quizService.playerScoreList;
+    this.playerScoreList.reverse();
     document.getElementById("slideBg").style.display = "block";
     document.getElementById("resultModal").style.display = "block";
     document.getElementById("resultModal").classList.add("show")

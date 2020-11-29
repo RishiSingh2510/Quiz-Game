@@ -10,7 +10,8 @@
             {{Username}} : LogOut
           </a>
         </li>
-        <li class="nav-item" *ngIf="Username==''" [routerLink]="['/login']" skipLocationChange>
+        <li class="nav-item" *ngIf="Username=='' && !_appSetting.loginPage" [routerLink]="['/login']"
+          skipLocationChange>
           <a class="nav-link js-scroll-trigger">
             Login
           </a>

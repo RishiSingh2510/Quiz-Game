@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AppSettingService } from '../services/app-setting.service';
 import { UserDetail } from '../services/userDetail.Model';
 
@@ -11,7 +12,7 @@ import { UserDetail } from '../services/userDetail.Model';
 export class RegistrationPageComponent implements OnInit {
   registerForm: FormGroup
 
-  constructor(private _appSetting: AppSettingService) { }
+  constructor(private _appSetting: AppSettingService, private router: Router) { }
   ngOnInit(): void {
     this.registerForm = new FormGroup({
       'fullName': new FormControl('', [Validators.required, Validators.minLength(4)]),
@@ -37,6 +38,7 @@ export class RegistrationPageComponent implements OnInit {
       newUserDetail.State = this.registerForm.get('state').value;
       newUserDetail.ZipCode = this.registerForm.get('zip').value;
       this._appSetting.addNewUser(newUserDetail);
+      this.router.navigate(['/login'], { skipLocationChange: true });
     }
   }
 

@@ -10,20 +10,13 @@ import { AppSettingService } from './services/app-setting.service';
 export class AppComponent implements OnInit {
   title = 'Quiz-Game';
   Username: string = ""
-
   constructor(private _appSetting: AppSettingService, private router: Router) { }
   ngOnInit() {
+    this._appSetting.setAppSettings();
     this._appSetting.userName.subscribe(resp => {
       this.Username = resp.toUpperCase();
     })
-    this.setAppSettings();
   }
-  
-  setAppSettings(){
-    localStorage.setItem("Username", "");
-    localStorage.setItem("isLogin", "0")
-  }
-
   LogOutUser() {
     this._appSetting.setUserName("");
     localStorage.setItem("Username", "");

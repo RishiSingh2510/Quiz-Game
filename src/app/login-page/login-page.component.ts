@@ -22,6 +22,8 @@ export class LoginPageComponent implements OnInit {
     if (localStorage.getItem("isLogin") == "1") {
       this.router.navigate(['/quiz'], { skipLocationChange: true });
     }
+    this._appSetting.getUserList();
+    this._appSetting.loginPage.next(true);
   }
   validateUser() {
     if (this.userNameVal.trim() == "") {
@@ -36,6 +38,7 @@ export class LoginPageComponent implements OnInit {
         localStorage.setItem("Username", this.userNameVal);
         localStorage.setItem("isLogin", "1");
         this.router.navigate(['/quiz'], { skipLocationChange: true });
+        this._appSetting.loginPage.next(false);
       }
       else {
         alert("Provided UserName & Password Invalid.")
